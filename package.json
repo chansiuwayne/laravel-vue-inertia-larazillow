@@ -4,14 +4,18 @@
     "scripts": {
         "dev": "vite",
         "build": "vite build",
-        "fix:eslint" : "eslint --ext .js, .vue resources/js/ --fix"
+        "fix:eslint": "eslint --ext .js, .vue resources/js/ --fix"
     },
     "devDependencies": {
+        "@tailwindcss/forms": "^0.5.3",
         "@vitejs/plugin-vue": "^4.2.3",
+        "autoprefixer": "^10.4.14",
         "axios": "^1.1.2",
         "eslint": "^8.40.0",
         "eslint-plugin-vue": "^9.13.0",
         "laravel-vite-plugin": "^0.7.5",
+        "postcss": "^8.4.23",
+        "tailwindcss": "^3.3.2",
         "vite": "^4.0.0",
         "vue": "^3.3.2"
     },
