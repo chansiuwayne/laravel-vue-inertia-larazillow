@@ -1,6 +1,6 @@
 <template>
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-        <Box v-for="listing in listings" :key="listing.id" class="box">
+        <!-- <Box v-for="listing in listings" :key="listing.id" class="box">
             <div>
                 <Link :href="route('listing.show', { listing: listing.id })">
                 <div>
@@ -16,16 +16,13 @@
             <div>
                 <Link :href="route('listing.destroy', { listing: listing.id })" method="DELETE">Delete</Link>
             </div>
-        </Box>
+        </Box> -->
+        <Listing v-for="listing in listings" :key="listing.id" :listing="listing" />
     </div>
 </template>
 
 <script setup>
-import { Link } from '@inertiajs/vue3';
-import ListingAddress from '@/Components/ListingAddress.vue';
-import Box from '@/Components/UI/Box.vue';
-import ListingSpace from '@/Components/ListingSpace.vue';
-import Price from '@/Components/Price.vue';
+import Listing from '@/Composables/Listing.vue';
 defineProps({ listings: Array })
 </script> 
 

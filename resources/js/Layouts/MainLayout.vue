@@ -1,6 +1,6 @@
 <template>
     <header class="border-b border-gray-200 dark:broder-gray-700 bg-white dark:bg-gray-900 w-full">
-        <div class="container mx-auto">
+        <div class="container mx-auto p-4 w-full">
             <nav class="p-4 flex items-center justify-between">
                 <div class="text-lg font-medium">
                     <Link :href="route('listing.index')">Listings</Link>
@@ -8,9 +8,15 @@
                 <div class="text-xl text-indigo-600 dark:text-indigo-300">
                     <Link :href="route('listing.index')">LaraZillow</Link>
                 </div>
-                <div>
-                    <Link :href="route('listing.create')"
-                        class="bg-indigo-600 hover:bg-indigo-500 text-white font-medium rounded p-2">+ New Listing</Link>
+                <div class="flex items-center gap-4" v-if="user">
+                    <div class="text-sm text-gray-500">{{ user.name }}</div>
+                    <Link :href="route('listing.create')" class="button-primary">+ New Listing</Link>
+                    <div>
+                        <Link :href="route('logout')" method="delete" as="button">Logout</Link>
+                    </div>
+                </div>
+                <div v-else>
+                    <Link :href="route('login')">Sign-In</Link>
                 </div>
             </nav>
         </div>
@@ -32,7 +38,7 @@ import { computed } from 'vue'
 
 const page = usePage()
 const message = computed(() => page.props.flash.success)
-
+const user = computed(() => page.props.user,)
 </script>
 
 <style>
